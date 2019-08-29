@@ -1,0 +1,38 @@
+<link rel=stylesheet href='https://use.typekit.net/lip6bqr.css'>
+<link data-inline rel=stylesheet href=index.less>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    var styles = [],
+        replacement = document.createElement('div'),
+        deferred = document.querySelectorAll('noscript[data-defer]');
+    deferred = Array.prototype.slice.call(deferred);
+    deferred.forEach((item) => {
+      styles.push(item.textContent);
+      item.parentNode.removeChild(item);
+    });
+    replacement.innerHTML = styles.join('\n');
+    function onStyleLoaded() {
+      styles.pop();
+      if (!styles.length) {
+        document.documentElement.classList.add('ready');
+      }
+    }
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        Array.prototype.slice.call(replacement.children).forEach((link) => {
+          link.addEventListener('load', onStyleLoaded);
+        });
+        document.body.appendChild(replacement);
+      }, 0);
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var array = Array.prototype.slice,
+        buttons = document.querySelectorAll('.button[href*=mailto]');
+    array.call(buttons).forEach(function (button) {
+      button.setAttribute('data-email', button.href.replace('mailto:', ''));
+    });
+  });
+</script>

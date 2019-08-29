@@ -1,0 +1,196 @@
+@import '../utils/index';
+body > header:extend(.bar) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: calc(~'90vh - 2em');
+  @media @ie { height: calc(~'90vh - 2em'); }
+  text-align: center;
+  color: white;
+  background-color: @blue;
+  .bannerA, .bannerB {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: no-repeat center / cover;
+    transition: opacity 1s;
+  }
+  .bannerA {
+    background-image: url(img/recruiter-1-mobile.jpg);
+    @media @tablet { background-image: url(img/recruiter-1.jpg); }
+  }
+  .bannerB { opacity: 0; }
+  &.alt .bannerB { opacity: 1; }
+  > * { position: relative; }
+  h1 {
+    font-size: 1.6em;
+    margin: 0;
+    hyphens: none;
+    margin-top: 3em;
+  }
+  @media @tablet {
+    padding-top: 8em;
+    min-height: calc(~'100vh - 9em');
+    h1 {
+      margin-top: 1em;
+    }
+  }
+  h1 + p {
+    font-size: 1.2em;
+    margin: 0;
+    color: rgba(255,255,255,0.85);
+  }
+  a { color: @yellow; }
+  .button.ghost {
+    position: relative;
+    background-color: rgba(0,0,0,.2);
+    @media (min-width: 17em) {
+      &:before {
+        position: absolute;
+        font-size: 2.5em;
+        .icon('play');
+        line-height: 1.5;
+        top: -.24em;
+        left: .1em;
+      }
+      padding-left: 3em;
+    }
+  }
+  .button.yellow {
+    font-size: 1.2em;
+    margin-bottom: 3em;
+  }
+}
+
+body > header .flash:extend(.bar) {
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  .accentBgColor(60%);
+
+  opacity: 0;
+  transition: opacity .3s;
+  :not([data-area]) & { opacity: 1; }
+
+  h3 { margin-top: 0; }
+  h3 b { font-weight: inherit; color: @yellow; }
+
+  .scroll {
+    display: block;
+    font-size: 1.2em;
+    z-index: 1;
+    &:before {
+      display: block;
+      content: 'Scroll to learn more';
+      margin-bottom: .5rem;
+    }
+    &:after, b:before, b:after {
+      .icon('arrow-down');
+      font-size: 1.2em;
+      line-height: 0.3;
+      display: block;
+      animation: 2.5s infinite backwards blink;
+    }
+    b:before { animation-delay: 0; }
+    b:after { animation-delay: .5s; }
+    &:after { animation-delay: 1s; }
+    @keyframes blink {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  }
+}
+
+.alt body > header {
+  min-height: 22em;
+  @media @ie { height: 22em; }
+  padding-top: 0;
+  align-items: center;
+  justify-content: center;
+  h1 { margin-top: 4em; }
+}
+
+/*BACKGROUND IMAGES*/
+html.contractor body > header.set1 {
+  .bannerA {
+    background-image: url(img/set1-a-mobile.jpg);
+    @media @tablet { background-image: url(img/set1-a.jpg); }
+  }
+  .bannerB {
+    background-image: url(img/set1-b-mobile.jpg);
+    @media @tablet { background-image: url(img/set1-b.jpg); }
+  }
+}
+html.contractor body > header.set2 {
+  .bannerA {
+    background-image: url(img/set2-a-mobile.jpg);
+    @media @tablet { background-image: url(img/set2-a.jpg); }
+  }
+  .bannerB {
+    background-image: url(img/set2-b-mobile.jpg);
+    @media @tablet { background-image: url(img/set2-b.jpg); }
+  }
+}
+html.contractor body > header.set3 {
+  .bannerA {
+    background-image: url(img/set3-a-mobile.jpg);
+    @media @tablet { background-image: url(img/set3-a.jpg); }
+  }
+  .bannerB {
+    background-image: url(img/set3-b-mobile.jpg);
+    @media @tablet { background-image: url(img/set3-b.jpg); }
+  }
+}
+html.contractor body > header.set4 {
+  .bannerA {
+    background-image: url(img/set4-a-mobile.jpg);
+    @media @tablet { background-image: url(img/set4-a.jpg); }
+  }
+  .bannerB {
+    background-image: url(img/set4-b-mobile.jpg);
+    @media @tablet { background-image: url(img/set4-b.jpg); }
+  }
+}
+
+html.recruiter body > header.set1 {
+  .bannerA {
+    background-image: url(img/recruiter-1-mobile.jpg);
+    @media @tablet { background-image: url(img/recruiter-1.jpg); }
+  }
+}
+html.recruiter body > header.set2 {
+  .bannerA {
+    background-image: url(img/recruiter-2-mobile.jpg);
+    @media @tablet {
+      background-image: url(img/recruiter-2.jpg);
+    }
+  }
+}
+
+html.signup body > header {
+  .bannerA {
+    background-image: url(img/recruiter-1-mobile.jpg) !important;
+    @media @tablet { background-image: url(img/recruiter-1.jpg) !important; }
+  }
+}
+html.about body > header {
+  .bannerA {
+    background-image: url(img/set2-b-mobile.jpg) !important;
+    @media @tablet { background-image: url(img/set2-b.jpg) !important; }
+  }
+}
+
+html.alt.resources body > header {
+  .bannerA {
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(img/read1.jpg);
+    background-size: 100%, 130%;
+    background-position: -60% 50%;
+    background-color: white;
+  }
+}

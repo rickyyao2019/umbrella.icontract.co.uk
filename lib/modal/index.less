@@ -1,0 +1,70 @@
+@import '../utils/index';
+.seedrs-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  margin: 10px;
+  z-index: 100000;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateX(-120%);
+  transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+  opacity: 0;
+  &.display {
+    transition: transform .5s 2s ease-in-out, opacity .5s 2s ease-in-out;
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  display: none;
+  @media @tablet {
+    display: block;
+  }
+}
+.seedrs-inner {
+  position: relative;
+}
+.seedrs-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  background-color: lightgray;
+  border-radius: 12px;
+  &:hover {
+    cursor: pointer;
+  }
+  &:before {
+    .icon('cross-alt');
+    color: gray;
+    width: 24px;
+    height: 24px;
+    display: block;
+    line-height:24px;
+  }
+}
+.seedrs-logo {
+  height: 32px;
+  vertical-align: text-bottom;
+}
+.seedrs-title {
+  font-size: 26px;
+  font-weight: 500;
+  color: #3c3c3c;
+  margin: 4px 0;
+}
+.seedrs-sub {
+  font-weight: 300;
+  font-size: 18px;
+}
+.seedrs-rocket {
+  height: 60px;
+}
+.inline-link {
+  color: @accent-green;
+  font-weight: 500;
+  text-decoration: none;
+}

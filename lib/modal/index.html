@@ -1,0 +1,81 @@
+<style>
+  .modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+  .modal .modalMain{
+    position:absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 660px;
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    transition: 0.5 all ease;
+  }
+  .modal .modalBody{
+    padding-top: 90px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .modal .modal-logo{
+    position: absolute;
+    width: 196px;
+    height: auto;
+    left: 50%;
+    top: -80px;
+    margin-left: -100px;
+  }
+  .modal-close{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 24px;
+  }
+  .modal-button{
+    background-color: #FBD400;
+    border: none;
+    padding:7px 15px; 
+    color: black;
+    border-radius: 0px !important;
+    outline: none;
+  }
+  @media (min-width:900px) {
+    .modal{
+      display: block;
+    }
+  }
+</style>
+<div class=modal>
+  <div class=modalMain>
+      <a class=modal-close>X</a>
+      <img class=modal-logo src=img/brad.png alt=Rocket />
+      <div class=modalBody>
+          <h1 class=modal-title>iContract and iConsult have joined forces to
+            create an IR35 compliant PAYE umbrella
+            <br /> – the only solution you’ll ever need.
+            </h1>
+          <button class="modal-button" onclick="window.location.href='news.html'">FIND OUT MORE</button>
+      </div>
+    </div>
+  
+</div>
+<script>
+  (function() {
+    const modalContainer = document.querySelector('.modal');
+    const modalClose = document.querySelector('.modal-close');
+    const modalChild = document.querySelector('.modalMain');
+    const onClickClose = () => {
+      modalContainer.style.display = 'none';
+    }
+    modalChild.style.display = 'block';
+    modalClose.addEventListener('click', onClickClose);
+  })();
+</script>

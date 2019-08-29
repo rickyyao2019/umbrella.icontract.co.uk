@@ -1,0 +1,86 @@
+@import '../utils/index';
+@import '../fonts/index';
+
+html {
+  font: 300 1em/1.5 'museo-sans-rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  text-align: center;
+  line-break: loose;
+  h1, h2, h3, h4 {
+    font-weight: inherit;
+    line-height: 1.4;
+  }
+}
+body {
+  width: 90%;
+  max-width: @maxwidth;
+  margin: auto;
+  background-color: @lightgray;
+  overflow-x: hidden;
+}
+h1 { font-size: 1.4em; }
+h2 { font-size: 1.375em; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  border-width: 0;
+}
+button, .button {
+  font: inherit;
+  display: table;
+  border-width: 0;
+  border-radius: 3rem;
+  margin: 1rem auto;
+  padding: .5rem 1.4rem;
+  text-transform: uppercase;
+  transition: background-color .3s, color .3s;
+  appearance: none;
+  cursor: pointer;
+  &, &.yellow:hover {
+    color: white;
+    .accentBgColor;
+  }
+  &.inverted {
+    .accentColor;
+    background-color: white;
+  }
+  &.yellow, &:hover {
+    color: @blue;
+    background-color: @yellow;
+  }
+  &.ghost {
+    color: white;
+    border: 2px solid @yellow;
+    background-color: transparent;
+    &:hover { background-color: rgba(255,255,255,.3); }
+  }
+}
+body > section, main, .section {
+  &:extend(.bar);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  overflow-x: hidden;
+  &#markets,
+  &#faq { background-color: white; }
+  @media @tablet {
+    &#features article:nth-of-type(even) { background-color: white; }
+  }
+}
+
+html:not(.recruiter) [data-target=recruiter],
+html.recruiter [data-target=contractor] { display: none; }
+.button[data-email]:hover {
+  font-size: 0;
+  &:before {
+    font-size: 1rem;
+    content: attr(data-email);
+  }
+}
+
+.recruiter [data-contractor] { display: none !important; }
+html:not(.recruiter) [data-recruiter] { display: none !important; }
+
+html:not(.partner) [data-target=partner],
+html.partner [data-target=not-partner] { display: none; }

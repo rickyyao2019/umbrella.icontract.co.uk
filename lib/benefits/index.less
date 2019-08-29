@@ -1,0 +1,126 @@
+
+    .benSection {
+        background-color: #F2F2F2;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .word{
+        background-color: #1B5464;
+        color: white;
+    }
+
+    .footer{
+        background-color: #A7AFB1;
+        color: white;
+        padding: 0;
+    }
+
+    .main {
+        max-width: 80em;
+        margin: 0 auto;
+    }
+    .main .rightImg{
+        display: none;
+    }
+    .main .phoneImgDiv{
+        text-align: center;
+    }
+    .main .phoneImgDiv img{
+        width: 90%;
+    }
+    .bottomDiv .info {
+        display: flex;
+        box-sizing: border-box;
+        flex: 1 1 auto;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    .bottomDiv button{
+        background-color: #2FD88A;
+        width: 250px;
+        height: 57px;
+    }
+
+    .bottomDiv .border{
+        border-top: 1px solid #707070;
+        width: 80%;
+        margin-bottom: -198px;
+        display: none;
+    }
+    .bottomDiv .info .infoitem .itemImg
+    {
+        text-align: center;
+    }
+    .bottomDiv .info .infoitem .itemImg img{
+        width: 50%;
+    }
+    .bottomDiv .info .infoitem{
+        margin-bottom: 50px;
+    }
+    .word .bottomDiv .info .infoitem{
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        color: black;
+        text-align: center;
+        margin: 20px 0px;
+    }
+    .word .bottomDiv .info .infoitem h3{
+        margin: 5px;
+    }
+    @media (min-width:900px) {
+        .main {
+            max-width: 75em;
+        }
+
+        .main .leftInfo {
+            width: 50%;
+            text-align: left;
+            float: left;
+        }
+        .bottomDiv .border{
+            display: block;
+        }
+        .main .rightImg{
+            width: 40%;
+            float: right;
+            padding: 20px;
+            display: block;
+        }
+        .main .phoneImgDiv{
+            display: none;
+        }
+        .leftInfo p {
+            margin: 30px 0px;
+        }
+
+        .main .bottomDiv .info {
+            justify-content: space-between;
+        }
+        .bottomDiv .info .infoitem .itemImg
+        {
+            text-align: left;
+        }
+        .word .bottomDiv .info .infoitem .itemImg
+        {
+            text-align: center;
+        }
+        .bottomDiv .info .infoitem .itemImg img{
+            width: 70%;
+        }
+
+        .bottomDiv .info .infoitem{
+            width: 23%;
+            float: left;
+            text-align: left;
+            
+        }
+        .word .info .infoitem{
+            width: 20%;
+            height: 320px;
+        }
+    }

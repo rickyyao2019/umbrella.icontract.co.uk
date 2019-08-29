@@ -1,0 +1,248 @@
+
+<script src="//load.sheetsu.com"></script>
+
+<link data-inline rel=stylesheet href="index.less">
+<link data-inline rel=stylesheet href="head.less">
+
+<section id="headerDiv">
+    <div class="contin">
+
+    <div class="bgDiv">
+
+    
+    <div class="headerMain">
+
+        
+    <div class="infoDiv">
+        <img class="rightImg" src="img/img1.png" />
+        <h1>Choosing the right umbrella company
+                can be a daunting task.</h1>
+        <h1 class="green">Let us make it easy for you.</h1>
+        <div style="border-top: 1px solid #707070"></div>
+        <p>We’ve joined forces with iConsult, to make it as easy as possible for you to choose 
+                a fully compliant Umbrella Company solution.</p>
+        <p>By registering with iConsult, not only will you be covered by a fully compliant 
+                Umbrella Company, we’ll also boost your profile with a Compliance Certified Tick.</p>
+        <div class="headerImgDiv">
+            <div class="imgChildDiv">
+                <img src="img/team.png"/>
+            </div>
+            <div class="imgChildDiv">
+                <img src="img/apsco.png"/>
+            </div>
+            <div class="imgChildDiv">
+                <img src="img/profe.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="formDiv" id="why">
+        <div class="formShow">
+            <div class="forminfoDiv">
+                <h1>WHY DO YOU NEED A COMPLIANT
+                    UMBRELLA COMPANY?</h1>
+                <p>As of April 2020, the UK government will be making significant changes to its IR35 rules. The new rules
+                    will directly affect the
+                    way some contractors get paid. Under the new off-payroll rules,
+                    contractors will no longer be able to determine their own IR35 status. Instead, the status will be
+                    determined by the end-client. This means that, when you apply for a new contract that’s considered
+                    within IR35, you will need to be registered with an Umbrella Company.</p>
+                <p class="marginp">Once registered you will not only be fully IR35 compliant, you’ll also be able to take advantage of
+                    benefits including: </p>
+    
+                <ul>
+                    <li>
+                        Comprehensive Business Insurance
+                    </li>
+                    <li>
+                        Holiday & Statutory Benefits such as SSP, SMP, SAP etc.
+                    </li>
+                    <li>
+                        Contributory Pension Scheme via Auto-Enrolment
+                    </li>
+                    <li>
+                        Access to an employee benefits scheme worth in excess of £1000 per year
+                    </li>
+                </ul>
+            </div>
+    
+    
+            <div class="formMain">
+                <h1>GET IN TOUCH TO FIND OUT MORE</h1>
+                <form>
+                    <div class="formChild">
+                        <div class="formItem fl">
+                            <label><span>*</span> First name</label>
+                            <input type="text" id="fname" name="FirstName">
+                            <label class="red" id="fnamelab">This field is compulsory!</label>
+                        </div>
+    
+                        <div class="formItem fr">
+                            <label><span>*</span> Last name</label>
+                            <input type="text" id="lname" name="LastName">
+                            <label class="red" id="lnamelab">This field is compulsory!</label>
+                        </div>
+                        <div class="clean"></div>
+                    </div>
+    
+                    <div class="formChild">
+                        <div class="formItem fl">
+                            <label><span>*</span> Email</label>
+                            <input type="text" id="email" name="Email">
+                            <label class="red" id="emaillab">This field is compulsory!</label>
+                        </div>
+    
+                        <div class="formItem fr">
+                            <label><span>*</span> Phone</label>
+                            <input type="text" id="phone" name="Phone">
+                            <label class="red" id="phonelab">This field is compulsory!</label>
+                        </div>
+                        <div class="clean"></div>
+                    </div>
+    
+                    <div class="formChild">
+                        <label><span>*</span> Comments</label>
+                        <textarea name="Comments" id="comment" rows="4"></textarea>
+                        <label class="red" id="commentlab">This field is compulsory!</label>
+                    </div>
+    
+                    <div class="formChild">
+                        <div class="formItem fl">
+                            <input type="checkbox" class="" />Sign up to our mailing list
+                        </div>
+    
+                        <div class="formItem fr">
+                            <input type="checkbox" checked />You agree to our privacy policy
+                        </div>
+                        <div class="clean"></div>
+                    </div>
+    
+                </form>
+                <button type="submit" class="subBtn" onclick="validateForm()">SUBMIT</button>
+            </div>
+        </div>
+</div>
+</section>
+
+
+
+
+<script>
+
+    function validateForm() {
+        let iserror = false;
+        if (fname.value == "" || !fname.value) {
+            fnamelab.style.display = "block";
+            iserror = true;
+        }
+        else {
+            fnamelab.style.display = "none";
+        }
+        if (lname.value == "" || !lname.value) {
+            lnamelab.style.display = "block";
+            iserror = true;
+        }
+        else {
+            lnamelab.style.display = "none";
+        }
+        if (email.value == "" || !email.value) {
+            emaillab.style.display = "block";
+            iserror = true;
+        }
+        else {
+            emaillab.style.display = "none";
+        }
+        if (phone.value == "" || !phone.value) {
+            phonelab.style.display = "block";
+            iserror = true;
+        }
+        else {
+            phonelab.style.display = "none";
+        }
+        if (comment.value == "" || !comment.value) {
+            commentlab.style.display = "block";
+            iserror = true;
+        }
+        else {
+            commentlab.style.display = "none";
+        }
+
+        if (!iserror) {
+            subData();
+        }
+
+    }
+
+    function subData() {
+        var url = "https://sheetsu.com/apis/v1.0su/88203004fdd7";
+        var data = {
+            "FirstName": fname.value,
+            "LastName": lname.value,
+            "Email": email.value,
+            "Phone": phone.value,
+            "Comments": comment.value,
+        }
+        var XHR = null;
+        if (window.XMLHttpRequest) {
+            // 非IE内核  
+            XHR = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            // IE内核,这里早期IE的版本写法不同,具体可以查询下  
+            XHR = new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+            XHR = null;
+        }
+
+        if (XHR) {
+            XHR.open("POST", url, true);
+            XHR.onreadystatechange = function () {
+                // readyState值说明  
+                // 0,初始化,XHR对象已经创建,还未执行open  
+                // 1,载入,已经调用open方法,但是还没发送请求  
+                // 2,载入完成,请求已经发送完成  
+                // 3,交互,可以接收到部分数据  
+
+                // status值说明  
+                // 200:成功  
+                // 404:没有发现文件、查询或URl  
+                // 500:服务器产生内部错误  
+                if (XHR.readyState == 4 && XHR.status == 201) {
+                    // 这里可以对返回的内容做处理  
+                    // 一般会返回JSON或XML数据格式  
+                    alert("Success");
+                    fname.value = "";
+                    lname.value = "";
+                    email.value = "";
+                    phone.value = "";
+                    comment.value = "";
+                    fname.style.border = "1px solid #E6E6E6";
+                    lname.style.border = "1px solid #E6E6E6";
+                    email.style.border = "1px solid #E6E6E6";
+                    phone.style.border = "1px solid #E6E6E6";
+                    comment.style.border = "1px solid #E6E6E6";
+                    console.log(XHR.responseText);
+                    // 主动释放,JS本身也会回收的  
+                    XHR = null;
+                }
+            };
+            // XHR.setRequestHeader("Content-type","application/json");  
+            XHR.setRequestHeader('Content-Type', 'application/json');
+            // XHR.send(JSON.stringify(data));  //如果是对象格式的数据就要转换成jsonstring  
+            XHR.send(JSON.stringify(data));
+        }
+    }
+    (function () {
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+        var email = document.getElementById("email");
+        var phone = document.getElementById("phone");
+        var fnamelab = document.getElementById("fnamelab");
+        var lnamelab = document.getElementById("lnamelab");
+        var emaillab = document.getElementById("emaillab");
+        var phonelab = document.getElementById("phonelab");
+        var commentlab = document.getElementById("commentlab");
+
+    })
+</script>

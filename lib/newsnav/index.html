@@ -1,0 +1,53 @@
+<link data-inline rel=stylesheet href="../nav/index.less">
+<style lang="less">
+  .menu {
+    background-color: #222222;
+    border-bottom: 1px solid #707070;
+    position: absolute;
+  }
+  .menu .menubar, .menu .container{
+    background-color: #222222;
+  }
+
+  .icondiv {
+    border-left: 1px solid #707070;
+    margin-left: 20px;
+    float: left;
+  }
+  .iconimg {
+    line-height: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .iconimg img {
+    height: 20px;
+  }
+
+  .green {
+    color: #2FD88A;
+  }
+</style>
+<nav class=menu>
+  <div class=menubar>
+    <a class=logo title=iContract href= />Home</a>
+
+    <div class=burger></div>
+  </div>
+
+  <div class="container ncont" style="margin-left: 0">
+    <div class="icondiv">
+      <div class="iconimg">
+        <img src="./iconsult.png" />
+      </div>
+    </div>
+  </div>
+
+  <div class=container>
+    <a href=#why title='WHY?'>WHY?</a>
+    <a data-target=contractor title='BENEFITS' href=#benefits>BENEFITS</a>
+    <a href=mailto:info@icontract.co.uk title='GET IN TOUCH' class="green">GET IN TOUCH</a>
+  </div>
+</nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsurl/2.1.7/url.min.js"></script>
+<script async src=index.js></script>

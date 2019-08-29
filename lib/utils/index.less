@@ -1,0 +1,69 @@
+@accent-green: #00A3A2;
+@accent-blue: #0095B5;
+@lightgray: #EFEFEF;
+@gray: #E6E6E6;
+@yellow: #FBD400;
+@blue: #184057;
+@maxwidth: 64em;
+@tablet: ~'(min-width:48em)';
+@desktop: ~'(min-width:64em)';
+@ie: ~'screen and (min-width:0\0)';
+.bar {
+  margin-left:   ~'calc((-100vw + 100%)/2)';
+  margin-right:  ~'calc((-100vw + 100%)/2)';
+  padding-left:  ~'calc(( 100vw - 100%)/2)';
+  padding-right: ~'calc(( 100vw - 100%)/2)';
+}
+.ffpadfix(@pad: 100%) {
+  padding-bottom: 0;
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: @pad;
+  }
+}
+.accentColor(@fade: 100%) {
+  color: fade(@accent-green, @fade);
+  .recruiter & { color: fade(@accent-blue, @fade); }
+}
+.accentBgColor(@fade: 100%) {
+  background-color: fade(@accent-green, @fade);
+  .recruiter & { background-color: fade(@accent-blue, @fade); }
+}
+.accentBorderColor(@fade: 100%) {
+  border-color: fade(@accent-green, @fade);
+  .recruiter & { border-color: fade(@accent-blue, @fade); }
+}
+.accentStroke(@fade: 100%) {
+  stroke: fade(@accent-green, @fade);
+  .recruiter & { stroke: fade(@accent-blue, @fade); }
+}
+
+/* ICONS*/
+.icon(@name) {
+  display: inline-block;
+  font-family: Icons !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  & when (@name = 'play')        { content: '\f144'; }
+  & when (@name = 'email')       { content: '\f0e0'; }
+  & when (@name = 'facebook')    { content: '\f09a'; }
+  & when (@name = 'google')      { content: '\f0d5'; }
+  & when (@name = 'linkedin')    { content: '\f0e1'; }
+  & when (@name = 'twitter')     { content: '\f099'; }
+  & when (@name = 'whatsapp')    { content: '\f232'; }
+  & when (@name = 'rss')         { content: '\f09e'; }
+  & when (@name = 'arrow-left')  { content: '\f104'; }
+  & when (@name = 'arrow-right') { content: '\f105'; }
+  & when (@name = 'arrow-down')  { content: '\f107'; }
+  & when (@name = 'cross')       { content: '\f057'; }
+  & when (@name = 'cross-alt')   { content: '\f00d'; }
+  & when (@name = 'show')        { content: '\f06e'; }
+  & when (@name = 'hide')        { content: '\f070'; }
+  & when (@name = 'anchor')      { content: '\f13d'; }
+}

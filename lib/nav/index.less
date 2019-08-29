@@ -1,0 +1,180 @@
+@import '../utils/index';
+@bgcolor: #175465;
+.menu {
+  .menubar {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 1em;
+    z-index: 4;
+    transition: transform .2s, background-color .2s;
+    will-change: transform;
+    @media @desktop { padding: 1em 2rem; }
+  }
+  .logo {
+    display: block;
+    font-size: 0;
+    width: 7rem;
+    height: 2rem;
+    background: url(logo.svg) no-repeat top center / contain;
+    transition: transform .3s ease-in-out;
+    margin: auto;
+    transform: translateX(15px);
+  }
+  .burger {
+    position: relative;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    color: @gray;
+    background-color: @bgcolor;
+    cursor: pointer;
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 2px;
+      border-radius: 2px;
+      top: calc(~'50% - 3px');
+      left: calc(~'50% - 6px');
+      background: currentColor;
+      transition: transform .3s;
+    }
+    &:after { transform: translateY(5px); }
+  }
+  .container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    color: white;
+    transform: translateY(-100%);
+    transition: transform .3s .4s;
+    will-change: transform;
+    @media @tablet { margin: 0 0 0 auto; }
+  }
+  .container a {
+    width: 90%;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    padding: 1em;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    transition: color .3s;
+    &:hover { .accentColor; }
+    &:last-child { border-bottom-width: 0; }
+  }
+  .menubar, .container {
+    background-color: fade(@bgcolor, 80%);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /*animations*/
+  &.hidden .menubar { transform: translateY(-100%); }
+  &.active .menubar { background-color: transparent; }
+  &.active .burger {
+    background-color: @bgcolor;
+    &:before { transform: translateY(2px) rotate(-135deg); }
+    &:after  { transform: translateY(2px) rotate(135deg);  }
+  }
+  &.active .container {
+    transform: none;
+    transition-delay: 0;
+  }
+  .ncont{
+    display: none;
+  }
+
+  @media (min-width:900px) {
+    transform: translateZ(0);
+    & {
+      position: fixed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 5%;
+      @media (min-width:1240px) {
+        padding: 0 calc(~'(100% - 75em)/2');
+      }
+      z-index: 4;
+      background-color: transparent;
+      -webkit-backdrop-filter: none;
+      transition: transform .2s, background-color .2s;
+    }
+    &.pinned { background-color: fade(@bgcolor, 100%); }
+    .ncont{
+      display: block;
+    }
+    .menubar, .container {
+      position: static;
+      display: inline-block;
+      transform: none;
+      width: auto;
+      padding-left: 0;
+      padding-right: 0;
+      background-color: transparent;
+      -webkit-backdrop-filter: none;
+    }
+    .logo {
+      width: 9rem;
+      height: 3rem;
+      transform: none;
+    }
+    .burger { display: none; }
+    .container a { border-bottom-width: 0; }
+    &.hidden { transform: translateY(-100%); }
+    &.hidden .menubar { transform: none; }
+  }
+}
+
+/* SPECIFICS */
+.menu .container .register {
+  border-radius: 5em;
+  border-width: 0;
+  margin-top: .5em;
+  padding: .5em 1em;
+  color: @blue;
+  background-color: @yellow;
+  transition: background-color .3s;
+  &:hover {
+    color: white;
+    .accentBgColor;
+  }
+  margin-left: .75em;
+}
+.menu .container .refer {
+  border-radius: 5em;
+  border-width: 0;
+  margin-top: .5em;
+  padding: .5em 1em;
+  color: white;
+  .accentBgColor;
+  transition: background-color .3s;
+  &:hover {
+    color: white;
+    .accentBgColor;
+  }
+}
+html.signup .menu .register,
+html.about .menu a[href*=about] { display: none; }
+
+@media @tablet {
+  /* HIDE EXTRA ITEMS FROM LARGER VERSIONS */
+  .menu .container a[data-target=mobile] { display: none; }
+}

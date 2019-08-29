@@ -1,0 +1,24 @@
+{
+  "name": "icontract-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "compile-articles": "node scripts/compile-articles.js contractor-resources/docs/*.md",
+    "build-pages": "pakku route.txt build && cp ./robots.txt ./sitemap.txt _redirects ./build/",
+    "start": "npm run compile-articles && bs-less ./",
+    "build": "npm run compile-articles && npm run build-pages"
+  },
+  "author": "iContract <info@icontract.co.uk>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "bs-less": "jezallan/bs-less#3262a04",
+    "front-matter": "^2.1.2",
+    "markdown-toc": "^1.1.0",
+    "marked": "^0.3.6",
+    "pakku": "jezallan/pakku#c36745e"
+  },
+  "dependencies": {
+    "global": "^4.3.2",
+    "netlify-cli": "^1.2.2"
+  }
+}

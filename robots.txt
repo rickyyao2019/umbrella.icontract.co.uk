@@ -1,0 +1,4 @@
+sitemap: https://icontract.co.uk/sitemap.txt
+user-agent: *
+allow: /
+allow: /contractor-resources

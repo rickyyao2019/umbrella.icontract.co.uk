@@ -1,0 +1,23 @@
+<noscript data-defer><link rel=stylesheet href=index.less></noscript>
+<section id=newsletter>
+  <p>Sign up to receive our newsletters with updates, offers and market insights from iContract</p>
+  <form novalidate method=post id=newsletter-form>
+    <div>
+      <label>
+        <input name=name placeholder='Full name' required>
+      </label>
+      <label>
+        <input name=email type=email placeholder='Email address' required>
+      </label>
+    </div>
+    <button class='button yellow'>Sign up for newsletter</button>
+    <p class=disclaimer>We do not share email addresses with any third parties. View our <a href=/privacy.html class=inline-link>Privacy Policy</a></p>
+  </form>
+  <div class=confirmation>
+    <h3>Thank you.</h3>
+  </div>
+</section>
+<script>
+  var newsletter = require('./');
+  newsletter(document.querySelector('#newsletter-form'));
+</script>

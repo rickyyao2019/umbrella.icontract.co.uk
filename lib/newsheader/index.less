@@ -1,0 +1,126 @@
+@import '../utils/index';
+
+input:not([type]), input[type=text], input[type=date], input[type=email], input[type=password], select {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    display: block;
+    width: 100%;
+    font: inherit;
+    border-width: 0;
+    border: 1px solid #E6E6E6;
+    border-radius: 4px;
+    margin: .5em auto;
+    padding: .5em;
+    box-sizing: border-box;
+    text-align: left;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #F7F6F4;
+    outline-width: 0;
+}
+.formDiv{
+    height: auto;
+    background-color: white;
+    padding: 20px;
+    .formShow{
+        max-width: 80em;
+        margin: 0 auto; 
+        display: flex;
+        box-sizing: border-box;
+        flex: 1 1 auto;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    .forminfoDiv{
+        text-align: left;
+        h1{
+            font-size: 1.6rem;
+        }
+        .marginp{
+            margin: 40px 0px;
+        }
+    }
+    .formMain{
+        background-color: white;
+        border: 2px solid #2FD88A;
+        border-radius: 10px;
+        padding: 20px 40px;
+        .formChild{
+            text-align: left;
+            margin: 20px 0px;
+            clear: both;
+            span{
+                color: red;
+            }
+            .formItem{
+                width: 100%;
+            }
+            input{
+                transform:none !important;
+            }
+            textarea{
+                margin: .5em auto;
+                padding: .5em; 
+                display: block;
+                width: 100%;
+                font: inherit;
+                border-width: 0;
+                border-radius: 5px;
+                box-sizing: border-box;
+                text-align: left;
+                border: 1px solid #E6E6E6;
+                -webkit-appearance: none;
+                background-color: #F7F6F4;
+                outline-width: 0;
+            }
+        }
+        
+    }
+    .red{
+        color: red;
+        display: none;
+    }
+    .fl{
+        float: left;
+    }
+    .fr{
+        float: right;
+    }
+    .clean{
+        clear: both;
+    }
+    .subBtn{
+        background-color: rgb(82, 207, 82);
+        color: white;
+        outline: none;
+        min-width: 180px;
+        margin-top: 50px !important;
+    }
+}
+
+@media (min-width:900px){
+    .formDiv .formMain{
+        width: 45%;
+        margin-top: -130px;
+        .formChild .formItem{
+            width: 48%;
+        }
+    }
+    .formDiv{
+        padding: 0;
+        padding-bottom: 30px;
+    }
+    .formDiv .formShow{
+        justify-content: space-between;
+    }
+    .formDiv .forminfoDiv{
+        width: 37%;
+        margin-right: 3%;
+    }
+}
+

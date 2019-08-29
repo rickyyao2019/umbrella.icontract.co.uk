@@ -1,0 +1,43 @@
+@import '../lib/utils/index';
+@copy: #777777;
+@darkgray: #474848;
+.articles {
+   a {
+     font-size: 0.875rem;
+     color: @copy;
+   }
+  figure {
+    margin: 0;
+    border-bottom: 1px solid;
+    padding-bottom: 1em;
+    img { box-shadow: 0 0 2px rgba(0,0,0,.2); }
+  }
+  h2 {
+    width: 100%;
+    padding: 1em 0;
+    text-align: center;
+    color: @darkgray;
+  }
+  h3 {
+    font-size: 1em;
+    color: black;
+  }
+  p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: @darkgray;
+  }
+}
+@media @tablet {
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    article {
+      width: 15em;
+      margin: 1em;
+    }
+  }
+}

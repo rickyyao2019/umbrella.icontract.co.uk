@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang=en-GB class='alt resources'>
+<!--#include file=/lib/meta/index.html -->
+<base href=/>
+<meta name=keywords content="{{keywords}}">
+<meta name=description content="{{metaDescription}}">
+<title>{{pageTitle}}</title>
+<!--#include file=/lib/layout/alt.html -->
+<!--#include file=/lib/nav/index.html -->
+<!--#include file=/lib/header/index.html -->
+<header>
+  <h1>{{title}}</h1>
+  <p>Guiding you through the contracting landscape</p>
+</header>
+<noscript data-defer>
+  <link rel=stylesheet href=/contractor-resources/article/index.less>
+</noscript>
+<div class=article-container>
+  <aside class=toc>{{toc}}</aside>
+  <main>
+    <aside class=download>
+      <h4>Looking for a printable version?</h4>
+      <a class=button href={{pdf}} target=_blank>Download the PDF</a>
+    </aside>
+    {{content}}
+  </main>
+</div>
+<!--#include file=articles.html -->
+<!--#include file=/lib/footer/index.html -->
+<!--#include file=/lib/google-analytics/index.html -->
+<script>require('./article')();</script>

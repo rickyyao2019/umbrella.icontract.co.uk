@@ -1,0 +1,39 @@
+<link data-inline rel=stylesheet href=index.less>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    var header = document.querySelector('body > header'),
+        bannerA = document.createElement('div'),
+        bannerB = document.createElement('div'),
+        scroll = document.createElement('span'),
+        cl  = document.documentElement.classList,
+        set,
+        bgInterval = 8000;
+    bannerA.classList.add('bannerA');
+    bannerB.classList.add('bannerB');
+
+    if (cl.contains('contractor')) {
+      set = ['set1', 'set2', 'set3', 'set4'];
+    }
+    if (cl.contains('recruiter')) {
+      set = ['set1', 'set2'];
+    }
+    if (cl.contains('alt') || cl.contains('about') || cl.contains('terms') || cl.contains('referral')) {
+      set = ['set1', 'set2'];
+    }
+
+    set = set[Math.floor(Math.random() * set.length)];
+    header.classList.add(set);
+
+    header.insertBefore(bannerB, header.children[0]);
+    header.insertBefore(bannerA, bannerB);
+
+    if (!document.documentElement.classList.contains('alt')) {
+      scroll.classList.add('scroll');
+      scroll.innerHTML = '<b><\/b>';
+      const flash = header.querySelector('.flash');
+      if (flash) flash.appendChild(scroll);
+    }
+
+    setInterval(function () { header.classList.toggle('alt'); }, bgInterval);
+  });
+</script>
