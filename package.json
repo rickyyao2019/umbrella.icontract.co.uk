@@ -14,7 +14,7 @@
     "bs-less": "jezallan/bs-less#3262a04",
     "front-matter": "^2.1.2",
     "markdown-toc": "^1.1.0",
-    "marked": "^0.3.6",
+    "marked": "^4.0.10",
     "pakku": "jezallan/pakku#c36745e"
   },
   "dependencies": {
